@@ -1,9 +1,9 @@
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-    <div className="py-4 text-center">
-      <div className=" font-semibold">Eduardo Saldana</div>
-      <span>Technical Advisor</span>
+    <div className="py-8 px-6 lg:px-16">
+      <Navbar/>
     </div>
   );
 }
