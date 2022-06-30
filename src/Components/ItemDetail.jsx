@@ -1,7 +1,7 @@
 import React from 'react'
 import ItemCount from './ItemCount';
 
-export default function ItemDetail({product, stock}) {
+export default function ItemDetail({product}) {
   
   return (
     <div className='flex mt-8 gap-8'>
