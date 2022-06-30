@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function ItemCount(stock, initial) {
+export default function ItemCount({stock, initial}) {
     const [auxInitial, setAuxInitial] = useState(initial);
     const [cart, setCart] = useState(0);
     
@@ -22,11 +22,12 @@ export default function ItemCount(stock, initial) {
 
   return (
     
-    <div>
-        <h3>{auxInitial}</h3>
-        <button onClick={handleIncrement}>+</button>
-        <button onClick={handleDecrement}>-</button>
-        <button onClick={onAdd}></button>
+    <div className='flex gap-4 items-center border-2 w-16 justify-center p-2'>
+        <h3 className='text-lg font-medium'>{auxInitial}</h3>
+        <div className='flex flex-col gap-2'>
+          <img onClick={handleIncrement} src={require('../images/TriangleUp.png')} alt="arrowUp"/>
+          <img onClick={handleDecrement} src={require('../images/TriangleDown.png')} alt="arrowDown"/>
+        </div>
     </div>
   )
 }
