@@ -10,19 +10,19 @@ export default function Navbar() {
       [background-size:100%_0.2em]
       motion-safe:transition-all motion-safe:duration-200
       hover:[background-size:100%_100%]
-      focus:[background-size:100%_100%]' href='#'>Woman</a>
+      focus:[background-size:100%_100%]' href='#'>Home</a>
             <a className='bg-gradient-to-r from-yellow-200 to-yellow-200
       bg-no-repeat [background-position:0_88%]
       [background-size:100%_0.2em]
       motion-safe:transition-all motion-safe:duration-200
       hover:[background-size:100%_100%]
-      focus:[background-size:100%_100%]' href='#'>Man</a>
+      focus:[background-size:100%_100%]' href='#'>Furniture</a>
             <a className='bg-gradient-to-r from-yellow-200 to-yellow-200
       bg-no-repeat [background-position:0_88%]
       [background-size:100%_0.2em]
       motion-safe:transition-all motion-safe:duration-200
       hover:[background-size:100%_100%]
-      focus:[background-size:100%_100%]' href='#'>About</a>
+      focus:[background-size:100%_100%]' href='#'>Decor</a>
             <a className='bg-gradient-to-r from-yellow-200 to-yellow-200
       bg-no-repeat [background-position:0_88%]
       [background-size:100%_0.2em]
