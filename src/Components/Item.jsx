@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Item({item}) {
   return (
@@ -7,6 +8,7 @@ export default function Item({item}) {
         <div className='flex justify-between'>
         <h3 className='text-center text-lg font-semibold'>{item.model}</h3>
         <h4 className='font-medium text-slate-500'>$ {item.price}</h4>
+        <Link to={`/item/${item.id}`}>See more</Link>
         </div>    
     </div>
   )

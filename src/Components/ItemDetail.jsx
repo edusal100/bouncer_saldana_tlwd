@@ -4,7 +4,7 @@ import ItemCount from './ItemCount';
 export default function ItemDetail({product}) {
   
   return (
-    <div className='flex mt-8 gap-8'>
+    <div key={product.id} className='flex mt-8 gap-8'>
        <div>
           <img className='w-80' src={product.image} alt="" />
        </div>
