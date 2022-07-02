@@ -20,7 +20,7 @@ export default function ItemDetailContainer() {
         const getProduct = delay =>
         new Promise(resolve => setTimeout(resolve, delay));
         
-        getProduct(2000).then(()=> setProduct(arrayDetails.find(prod => prod.id === idProduct))); 
+        getProduct(2000).then(()=> setProduct(arrayDetails.find(prod => prod.id === Number(idProduct)))); 
       
         }, [idProduct]);
 
