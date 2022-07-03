@@ -31,7 +31,9 @@ export default function Navbar() {
         <div className='flex justify-center space-x-10 items-center'>
             <img className='h-4' src={require('../images/search.png')} alt="search" />
             <img className='h-4' src={require('../images/heart.png')} alt="heart" />
+            <Link to="/cart">
             <CartWidget/>
+            </Link>
         </div>
     </nav>
   )

@@ -2,6 +2,7 @@ import { Routes, Route} from "react-router-dom";
 import ItemDetailContainer from "./Components/ItemDetailContainer";
 import ItemListContainer from "./Components/ItemListContainer";
 import Navbar from "./Components/Navbar";
+import Cart from "./Components/Cart";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<ItemListContainer/>}/>
         <Route exact path="/category/:idCategory" element= {<ItemListContainer/>}/>
-        <Route exact path="/item/:idProduct" element= {<ItemDetailContainer/>}/>    
+        <Route exact path="/item/:idProduct" element= {<ItemDetailContainer/>}/>
+        <Route exact path="/cart" element={<Cart/>} />   
       </Routes> 
 
     </div>
