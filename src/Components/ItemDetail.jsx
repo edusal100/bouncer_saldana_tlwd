@@ -1,14 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {Link} from "react-router-dom";
 import ItemCount from './ItemCount';
+import { CartContext } from './CartContext';
 
 export default function ItemDetail({product}) {
 
    const [irCarrito, setIrCarrito ] = useState(false)
 
+   const {cartList, agregarAlCarrito} = useContext(CartContext)
+
    const onAdd = (cantidad) => {
-      console.log("Agregaste " + cantidad + " al carrito!")
       setIrCarrito(true)
+      agregarAlCarrito({...product, cantidad: cantidad})
    }
   
   return (

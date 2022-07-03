@@ -1,7 +1,33 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { CartContext } from './CartContext'
 
 export default function Cart() {
+
+  const {cartList, eliminarItem, vaciarCarrito} = useContext(CartContext)
+  console.log(cartList)
+
   return (
-    <div>Cart</div>
+    <div>
+      <div className='hidden lg:flex justify-between mb-6' >
+        <p>Product</p>
+        <p>Price</p>
+        <p>Quantity</p>
+        <p>Total</p>
+      </div>
+      <hr className='mb-6'/>
+      {cartList.map(prod =>
+      <div className='flex justify-between mb-4 items-center' key={prod.id}>
+        <div className='flex items-center gap-8 font-bold'>
+            <img className='w-16' src={prod.image} alt="" />
+            <p>{prod.model}</p>
+          </div>
+            <p>${prod.price}</p>
+            <p>{prod.cantidad}</p>
+            <img className='h-4' src={require('../images/remove.png')} alt="" />
+      </div>
+      )}
+      <hr className='mt-6'/>
+      <button onClick={vaciarCarrito} className="mt-6 h-10 px-6 font-semibold rounded-md bg-black text-white" >Empty Cart</button>
+    </div>
   )
 }

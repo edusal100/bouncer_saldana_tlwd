@@ -27,7 +27,6 @@ export default function ItemListContainer() {
        
       } else {
         awaitTimeout(2000).then(()=> setItems(arrayItems));
-        console.log("test")
       }
     }, [idCategory]);
   
