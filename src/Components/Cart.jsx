@@ -1,14 +1,14 @@
 import React, {useContext} from 'react'
 import { CartContext } from './CartContext'
 
+
 export default function Cart() {
 
   const {cartList, eliminarItem, vaciarCarrito} = useContext(CartContext)
-  console.log(cartList)
 
-  return (
+  return ( 
     <div>
-      <div className='hidden lg:flex justify-between mb-6' >
+        <div className='hidden lg:flex justify-between mb-6' >
         <p>Product</p>
         <p>Price</p>
         <p>Quantity</p>
@@ -23,11 +23,13 @@ export default function Cart() {
           </div>
             <p>${prod.price}</p>
             <p>{prod.cantidad}</p>
-            <img className='h-4' src={require('../images/remove.png')} alt="" />
+            <div className='flex gap-4'>
+            <p>${prod.price * prod.cantidad}</p>
+            <img onClick={()=> eliminarItem(prod.id)} className='h-4' src={require('../images/remove.png')} alt="" />
+            </div>
       </div>
-      )}
-      <hr className='mt-6'/>
-      <button onClick={vaciarCarrito} className="mt-6 h-10 px-6 font-semibold rounded-md bg-black text-white" >Empty Cart</button>
-    </div>
-  )
+      )} 
+      <button onClick={vaciarCarrito} className="mt-6 h-10 px-6 font-semibold rounded-md bg-black text-white" >Empty Cart</button> 
+      </div> 
+  ) 
 }
