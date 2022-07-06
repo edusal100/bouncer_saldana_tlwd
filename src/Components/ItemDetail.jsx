@@ -15,11 +15,11 @@ export default function ItemDetail({product}) {
    }
   
   return (
-    <div key={product.id} className='flex mt-8 gap-8'>
+    <div key={product.id} className='lg:flex mt-8 gap-8'>
        <div>
-          <img className='w-80' src={product.image} alt="" />
+          <img className='w-full lg:w-80' src={product.image} alt="" />
        </div>
-       <div className='w-80'>
+       <div className='mt-4 w-full lg:mt-0 lg:w-80'>
           <h2 className='font-bold text-xl mb-2'>{product.model}</h2>
           <h3 className='font-medium text-slate-500 mb-2'>${product.price}</h3>
           <p className='mb-8'>{product.description}</p>
