@@ -8,7 +8,7 @@ import CartContextProvider from "./Components/CartContext";
 function App() {
   return (
     <CartContextProvider>
-    <div className="py-8 px-6 lg:px-16">
+    <div className="p-6 lg:px-16">
       <Navbar/>
       <Routes>
         <Route exact path="/" element={<ItemListContainer/>}/>

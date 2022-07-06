@@ -26,7 +26,7 @@ export default function Cart() {
             <p>${prod.price}</p>
             <p>{prod.cantidad}</p>
             </div>
-            <div className='flex gap-6'>
+            <div className='flex gap-6 items-center'>
             <p className='font-bold text-2xl lg:text-xl'>${prod.price * prod.cantidad}</p>
             <img onClick={()=> eliminarItem(prod.id)} className='h-4' src={require('../images/remove.png')} alt="" />
             </div>
