@@ -25,7 +25,7 @@ export default function Navbar() {
       hover:[background-size:100%_100%]
       focus:[background-size:100%_100%]'>Sofas</Link>
         </div>
-        <Link to="/" className='flex-1 text-4xl font-extrabold'>
+        <Link to="/" className='flex-1 text-4xl lg:text-3xl font-extrabold'>
         BOUNCER
         </Link>
         <div className='flex justify-center space-x-10 items-center'>
