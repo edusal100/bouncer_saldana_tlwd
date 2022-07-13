@@ -1,14 +1,23 @@
 import React, {useContext} from 'react'
+import { Link } from 'react-router-dom'
 import { CartContext } from './CartContext'
 
 
 export default function Cart() {
 
-  const {cartList, eliminarItem, vaciarCarrito} = useContext(CartContext)
+  const {cartList, eliminarItem, vaciarCarrito, totalBuy} = useContext(CartContext)
 
   return ( 
     <div>
         <div className='bg-slate-100 text-center py-10 lg:py-14 mb-4 text-4xl font-extrabold'>Shopping Cart</div>
+        {cartList.length   === 0 ?
+        <div className='flex flex-col items-center mb-4'>
+          <h3 className='text-xl my-10'>You're cart is empty</h3>
+          <Link to="/">
+          <button className='h-10 px-6 font-semibold rounded-md bg-black text-white'>Go back to Store</button>
+          </Link>
+      </div> :
+      <div>
         <div className='hidden lg:flex justify-between mb-4'>
         <p>Product</p>
         <p>Price</p>
@@ -16,8 +25,9 @@ export default function Cart() {
         <p>Total</p>
       </div>
       <hr className='mb-6'/>
-      {cartList.map(prod =>
-      <div className='flex justify-between items-center' key={prod.id}>
+      {cartList.map (prod =>
+      <div>
+      <div className='flex justify-between items-center mb-4' key={prod.id}>
         <div className='flex items-center font-bold'>
             <img className='w-28 lg:w-16' src={prod.image} alt="" /> 
           </div>
@@ -28,11 +38,23 @@ export default function Cart() {
             </div>
             <div className='flex gap-6 items-center'>
             <p className='font-bold text-2xl lg:text-xl'>${prod.price * prod.cantidad}</p>
-            <img onClick={()=> eliminarItem(prod.id)} className='h-4' src={require('../images/remove.png')} alt="" />
+            <img onClick={()=> eliminarItem(prod.id)} className='h-4 cursor-pointer' src={require('../images/remove.png')} alt="" />
             </div>
       </div>
-      )} 
-      <button onClick={vaciarCarrito} className="mt-6 h-10 px-6 font-semibold rounded-md bg-black text-white" >Empty Cart</button> 
-      </div> 
+      <hr className='mt-6 mb-6'/>
+      </div>
+      )}
+      <div className='flex justify-between items-center'>
+      <div>
+      <button onClick={vaciarCarrito} className="h-10 px-6 font-semibold rounded-md bg-black text-white" >Empty Cart</button>
+      </div>
+      <div className='flex gap-8'>
+      <p className='text-xl'>Total</p>
+      <p className='font-bold text-xl'>${totalBuy()}</p>
+      </div>
+      </div>   
+      </div>
+      }
+      </div>  
   ) 
 }

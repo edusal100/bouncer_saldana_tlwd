@@ -26,7 +26,7 @@ export default function ItemDetail({product}) {
           <p className='mb-2'>Stock: {product.stock}</p>
           {!irCarrito ? <ItemCount stock={product.stock} initial={1} onAdd={onAdd}/> :
           <Link to="/cart">
-          <button className='mt-8 h-10 px-6 font-semibold rounded-md bg-black text-white'>Go to Cart</button>
+          <button className='mt-8 h-10 px-6 font-semibold rounded-md bg-black text-white'>Proceed to Checkout</button>
           </Link>}
        </div>
     </div>
