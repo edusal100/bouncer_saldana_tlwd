@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import ItemList from './ItemList';
 
 export default function ItemListContainer() {
@@ -10,23 +11,18 @@ export default function ItemListContainer() {
 
     useEffect (() => {
 
-      
-      const arrayItems = [
-      {id: 1, brand: 'Michael Thonet', model:'Era Chair', stock: 20, price: 100, image:'https://source.unsplash.com/fr0J5-GIVyg',category:"chairs"},
-      {id: 2, brand: 'Eileen Gray', model:'Transat', stock: 10, price: 80, image:'https://source.unsplash.com/m7fT6OreZfI', category:"sofas"},
-      {id: 3, brand: 'Marcel Breuer', model:'Cesca Chair', stock: 5, price: 170, image: 'https://source.unsplash.com/4kTbAMRAHtQ', category:"chairs"},
-      {id: 4, brand: 'Ikea', model:'Holden Sofa', stock: 30, price: 250, image: 'https://source.unsplash.com/1P6AnKDw6S8', category:"sofas"},
-    ]
-  
-    const awaitTimeout = delay =>
-    new Promise(resolve => setTimeout(resolve, delay));
+      const db = getFirestore();
     
     if (idCategory){
         
-        awaitTimeout(2000).then(()=> setItems(arrayItems.filter(prod => prod.category === idCategory))); 
+      const queryCollectionCategory = query(collection(db, 'items'), where('category', '==', idCategory) )
+      getDocs(queryCollectionCategory)
+      .then(resp => setItems ( resp.docs.map(prod => ({ id: prod.id, ...prod.data()}))))
        
       } else {
-        awaitTimeout(2000).then(()=> setItems(arrayItems));
+        const queryCollection = collection(db, 'items')
+            getDocs(queryCollection)
+            .then(resp => setItems( resp.docs.map(prod => ({ id: prod.id, ...prod.data()}))))
       }
     }, [idCategory]);
   
