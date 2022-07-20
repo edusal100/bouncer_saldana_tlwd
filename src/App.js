@@ -4,6 +4,8 @@ import ItemListContainer from "./Components/ItemListContainer";
 import Navbar from "./Components/Navbar";
 import Cart from "./Components/Cart";
 import CartContextProvider from "./Components/CartContext";
+import FormBuyer from "./Components/FormBuyer";
+
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
         <Route exact path="/" element={<ItemListContainer/>}/>
         <Route exact path="/category/:idCategory" element= {<ItemListContainer/>}/>
         <Route exact path="/item/:idProduct" element= {<ItemDetailContainer/>}/>
-        <Route exact path="/cart" element={<Cart/>} />   
+        <Route exact path="/cart" element={<Cart/>} />
+        <Route exact path="/checkout" element={<FormBuyer />}
+						/>	   
       </Routes>
     </div>
     </CartContextProvider>
