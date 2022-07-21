@@ -48,7 +48,7 @@ export default function Cart() {
       <div className='flex gap-2'>
       <button onClick={vaciarCarrito} className="h-10 px-6 font-semibold rounded-md bg-black text-white" >Empty Cart</button>
       <Link to="/checkout">
-        <button className="h-10 px-6 font-semibold rounded-md bg-black text-white">Procces Purchase</button>
+        <button className="h-10 px-6 font-semibold rounded-md bg-black text-white">Proccess Purchase</button>
       </Link>
       </div>
       <div className='flex gap-8'>

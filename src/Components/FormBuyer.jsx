@@ -21,6 +21,8 @@ export default function FormBuyer() {
     }
 
     const createOrder = (e) => {
+
+        e.preventDefault();
         let order = {}
         order.date = Timestamp.fromDate(new Date())
         order.buyer = formData
@@ -28,7 +30,7 @@ export default function FormBuyer() {
         
         order.items = cartList.map(cartItem => {
             const id = cartItem.id
-            const name = cartItem.name
+            const name = cartItem.model
             const price = cartItem.price
             const quantity = cartItem.cantidad
             const totalPrice = cartItem.price * cartItem.cantidad
@@ -69,7 +71,7 @@ export default function FormBuyer() {
     <div>
         {orderId ? 
 
-        <div className='flex justify-center bg-[url(https://source.unsplash.com/_L3YMlqc9NA)]'>
+        <div className='flex justify-center'>
             <h1>Thanks!</h1>
             <h3>Your order is complete.</h3>
             <p>El id de tu compra es {orderId}</p>
@@ -81,12 +83,12 @@ export default function FormBuyer() {
         <div>
             <form onChange={handleChange} onSubmit={createOrder}>
                 <label>Name</label>
-                <input type="name" name="name" defaultValue={formData.name} placeholder="" required/>
+                <input type="name" name="name" value={formData.name} placeholder="" required/>
                 <label>Phone</label>
-                <input type="text" name="phone" defaultValue={formData.phone} placeholder="" required/>
+                <input type="text" name="phone" value={formData.phone} placeholder="" required/>
                 <label>Email</label>
-                <input type="email" name="email" defaultValue={formData.email} placeholder="" required/>
-                <button className='mt-8 h-10 px-6 font-semibold rounded-md bg-black text-white' disabled={!formData.name || !formData.phone || !formData.email || cartList.length === 0} >Proceed to Payment</button>
+                <input type="email" name="email" value={formData.email} placeholder="" required/>
+                <button className='mt-8 h-10 px-6 font-semibold rounded-md bg-black text-white' >Proceed to Payment</button>
             </form>
         </div>
         
