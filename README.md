@@ -14,7 +14,7 @@ git clone https://github.com/edusal100/bouncer_saldana_tlwd.git
 Install dependencies
 
 ```bash
-npm start
+npm install
 ```
 
 ## Project Link
